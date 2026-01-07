@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask-Pythia Demo</title>
+</head>
+<body>
+    <h1>Flask-Pythia LLM Demo</h1>
+    <form method="POST">
+        <label for="prompt">Enter your prompt:</label>
+        <input type="text" id="prompt" name="prompt" style="width: 500px;" required>
+        <button type="submit">Generate</button>
+    </form>
+    <hr>
+    {% if user_prompt and response %}
+        <h2>Prompt</h2>
+        <p>{{ user_prompt }}</p>
+        <h2>Response</h2>
+        <p>{{ response }}</p>
+    {% endif %}
+</body>
+</html>
+
