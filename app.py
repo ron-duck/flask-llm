@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 # Load the model and tokenizer from Hugging Face
 model_name = "EleutherAI/pythia-70m"
-custom_cache = r"C:\Work\Coursera\MRI\hf_cache"  # choose your directory
+
+custom_cache = os.path.join(os.getcwd(), "hf_cache")
 os.makedirs(custom_cache, exist_ok=True)
 
-
-# We create a pipeline for text generation
+# Create a pipeline for text generation
 model_pipeline = pipeline(
     "text-generation",
     model=model_name,
