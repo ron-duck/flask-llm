@@ -119,4 +119,34 @@ SSLCertVerificationError
 Fixes include:
 - Disabling the proxy (temporary)  
 - Adding your corporate root CA to the Python certificate store  
-- Pre‑downloading the model and using offline mode  
+- Pre‑downloading the model and using offline mode
+
+## 🔑 6. Accessing Gated Hugging Face Models
+If you want to use gated or private Hugging Face models, set an environment variable named `HF_TOKEN` with your personal token from Hugging Face (e.g. from https://huggingface.co/settings/tokens) before running the app:
+
+```bash
+$ set HF_TOKEN=hf_xxxYOURTOKENxxx
+$ python app.py
+```
+
+This lets the libraries authenticate and download restricted model weights. **Important**: Keep the token safe and avoid committing it to source control.
+
+## 🔑 6. Accessing Gated Hugging Face Models
+If you want to use gated or private Hugging Face models, set an environment variable named `HF_TOKEN` with your personal token from Hugging Face (e.g. from https://huggingface.co/settings/tokens) before running the app:
+
+```bash
+$ set HF_TOKEN=hf_xxxYOURTOKENxxx
+$ python app.py
+```
+
+This lets the libraries authenticate and download restricted model weights. **Important**: Keep the token safe and avoid committing it to source control.
+
+## 🔑 6. Accessing Gated Hugging Face Models
+If you want to use gated or private Hugging Face models, set an environment variable named `HF_TOKEN` with your personal token from Hugging Face (e.g. from https://huggingface.co/settings/tokens) before running the app:
+
+```bash
+$ set HF_TOKEN=hf_xxxYOURTOKENxxx
+$ python app.py
+```
+
+This lets the libraries authenticate and download restricted model weights. **Important**: Keep the token safe and avoid committing it to source control.
