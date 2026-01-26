@@ -5,8 +5,8 @@ import torch
 
 app = Flask(__name__)
 
-model_name = "EleutherAI/pythia-70m"
-# model_name = "meta-llama/Llama-3.2-1B"
+#model_name = "EleutherAI/pythia-70m"
+model_name = "meta-llama/Llama-3.2-1B"
 custom_cache = os.path.join(os.getcwd(), "hf_cache")
 os.makedirs(custom_cache, exist_ok=True)
 
@@ -21,7 +21,7 @@ def try_load_pipeline():
         return pipeline(
             "text-generation",
             model=model_name,
-            torch_dtype=torch.float32,
+            dtype=torch.bfloat16,
             device=0 if torch.cuda.is_available() else -1,
             model_kwargs={"cache_dir": custom_cache},
             token=hf_token if hf_token else True
@@ -40,7 +40,7 @@ def home():
     if request.method == 'POST':
         prompt = request.form.get('prompt', '')
         # Generate text
-        result = model_pipeline(prompt, max_length=128, do_sample=True, top_k=50, top_p=0.95)
+        result = model_pipeline(prompt, max_new_tokens=128, do_sample=True, top_k=50, top_p=0.95)
         generated_text = result[0]['generated_text']
         return render_template('index.html', user_prompt=prompt, response=generated_text)
     else:
